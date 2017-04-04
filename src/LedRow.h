@@ -15,9 +15,10 @@ public:
     LedRow(uint8_t *pins, int pinCount);
     ~LedRow();
 
-    Led& getLed(unsigned int index);
+    Led& getLed(int index);
     void addLed(uint8_t pin);
     void displayBinaryNumber(unsigned int number);
+    void lightSingleLed(int index);
     unsigned int getLedCount();
 
 private:

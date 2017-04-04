@@ -11,7 +11,7 @@ void LedRow::displayBinaryNumber(unsigned int number) {
     }
 }
 
-Led& LedRow::getLed(unsigned int index) {
+Led& LedRow::getLed(int index) {
     return *_leds[index];
 }
 
@@ -37,4 +37,10 @@ LedRow::~LedRow() {
 
 unsigned int LedRow::getLedCount() {
     return _leds.size();
+}
+
+void LedRow::lightSingleLed(int index) {
+    for (int i = 0; i < getLedCount(); ++i) {
+        getLed(i).turnOn(i == index);
+    }
 }
