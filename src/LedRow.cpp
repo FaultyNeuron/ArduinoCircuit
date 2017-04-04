@@ -5,7 +5,7 @@
 #include "LedRow.h"
 
 void LedRow::displayBinaryNumber(unsigned int number) {
-    for (unsigned int i = getLedCount() - 1; i >= 0; ++i) {
+    for (int i = getLedCount() - 1; i >= 0; --i) {
         getLed(i).turnOn(number % 2 == 1);
         number /= 2;
     }
