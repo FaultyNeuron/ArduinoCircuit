@@ -10,10 +10,13 @@ void Circuit::tick() {
 }
 
 void Circuit::tick(unsigned long  milli) {
-    for (auto component : _components) {
+    for (auto const &component : _components) {
+        component->prepare(milli);
+    }
+    for (auto const &component : _components) {
         component->tick(milli);
     }
-    for (auto animation : _animations) {
+    for (auto const &animation : _animations) {
         animation->tick(milli);
     }
 }

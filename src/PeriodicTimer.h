@@ -11,9 +11,7 @@ class PeriodicTimer : public Timer {
 public:
     PeriodicTimer(unsigned long timerDelay, unsigned long currentTime);
     unsigned long nextTickAt() const;
-
     virtual bool action(unsigned long millis) override;
-
 
 private:
     unsigned long _timerDelay;

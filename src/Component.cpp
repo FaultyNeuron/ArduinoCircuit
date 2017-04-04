@@ -16,14 +16,6 @@ void Component::addPrepareTimer(Timer &timer) {
     _prepareTimers.add(timer);
 }
 
-//void Component::removePrepareTimer(Timer &timer) {
-//    _prepareTimers.remove(timer);
-//}
-
 void Component::addTickTimer(Timer &timer) {
     _tickTimers.add(timer);
 }
-
-//void Component::removeTickTimer(Timer &timer) {
-//    _tickTimers.remove(timer);
-//}

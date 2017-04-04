@@ -9,12 +9,8 @@ void TimerManager::add(Timer& timer) {
     std::sort(_timers.begin(), _timers.end());
 }
 
-//void TimerManager::remove(Timer& timer) {
-//    _timers.erase(std::remove(_timers.begin(), _timers.end(), timer), _timers.end());
-//}
-
 void TimerManager::tick(unsigned long milli) {
-    while (milli < _timers.front()->nextTickAt()) {
+    while (_timers.size() > 0 && milli > _timers.front()->nextTickAt()) {
         Timer* timer = _timers.front();
         _timers.pop_front();
         if (timer->action(milli)) {
@@ -23,6 +19,6 @@ void TimerManager::tick(unsigned long milli) {
     }
 }
 
-deque<Timer*> TimerManager::timers() {
+deque<Timer*>& TimerManager::timers() {
     return _timers;
 }

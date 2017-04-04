@@ -17,8 +17,20 @@ public:
     void setActive(bool active);
     virtual void nextFrame() = 0;
 private:
+    struct T : public PeriodicTimer {
+    public:
+        T(unsigned long timerDelay, unsigned long currentTime, Animation &_animation) :
+                PeriodicTimer(timerDelay, currentTime), _animation(_animation) {}
+        virtual bool action(unsigned long millis) override {
+            _animation.nextFrame();
+            return PeriodicTimer::action(millis);
+        }
+    private:
+        Animation& _animation;
+    };
+
     bool _isActive;
-    PeriodicTimer _timer;
+    T _timer;
     TimerManager _timers;
 };
 

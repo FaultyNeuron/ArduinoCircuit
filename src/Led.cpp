@@ -17,4 +17,6 @@ void Led::turnOn(bool on) {
     }
 }
 
-Led::Led(uint8_t _pin) : _pin(_pin) {}
+Led::Led(uint8_t _pin) : _pin(_pin) {
+    pinMode(_pin, OUTPUT);
+}

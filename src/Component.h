@@ -15,14 +15,8 @@ class Component {
 public:
     virtual void tick(unsigned long millis);
     virtual void prepare(unsigned long millis);
-
     void addPrepareTimer(Timer &listener);
-
-//    void removePrepareTimer(Timer &listener);
-
     void addTickTimer(Timer &listener);
-
-//    void removeTickTimer(Timer &listener);
 
 private:
     TimerManager _prepareTimers;

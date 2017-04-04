@@ -30,7 +30,7 @@ void LedRow::addLed(uint8_t pin) {
 }
 
 LedRow::~LedRow() {
-    for (int i = 0; i < getLedCount(); i++) {
+    for (unsigned int i = 0; i < getLedCount(); i++) {
         delete _leds[i];
     }
 }
@@ -40,7 +40,7 @@ unsigned int LedRow::getLedCount() {
 }
 
 void LedRow::lightSingleLed(int index) {
-    for (int i = 0; i < getLedCount(); ++i) {
+    for (unsigned int i = 0; i < getLedCount(); ++i) {
         getLed(i).turnOn(i == index);
     }
 }
