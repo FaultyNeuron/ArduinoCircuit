@@ -6,6 +6,7 @@
 #define BASICS_LEDROW_H
 
 #include "Led.h"
+#include <StandardCplusplus.h>
 #include <vector>
 using namespace std;
 

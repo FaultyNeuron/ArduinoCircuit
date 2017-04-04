@@ -6,7 +6,6 @@
 #define BASICS_LED_H
 
 #include "Arduino.h"
-#include "StandardCplusplus.h"
 #include "Component.h"
 
 class Led : public Component{

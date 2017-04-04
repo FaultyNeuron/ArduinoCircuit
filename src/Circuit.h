@@ -6,6 +6,7 @@
 #define BASICS_CIRCUIT_H
 #include <Arduino.h>
 #include "Component.h"
+#include <StandardCplusplus.h>
 #include <vector>
 using namespace std;
 

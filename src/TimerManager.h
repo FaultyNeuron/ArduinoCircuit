@@ -5,6 +5,7 @@
 #ifndef BASIC_TIMERMANAGER_H
 #define BASIC_TIMERMANAGER_H
 
+#include <StandardCplusplus.h>
 #include <deque>
 #include "Timer.h"
 
