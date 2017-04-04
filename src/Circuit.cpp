@@ -3,6 +3,7 @@
 //
 
 #include "Circuit.h"
+#include <Arduino.h>
 
 void Circuit::tick() {
     tick(millis());
@@ -10,10 +11,10 @@ void Circuit::tick() {
 
 void Circuit::tick(unsigned long  milli) {
     for (auto component : _components) {
-        component.tick(milli);
+        component->tick(milli);
     }
 }
 
 void Circuit::addComponent(Component &component) {
-    _components.push_back(component);
+    _components.push_back(&component);
 }

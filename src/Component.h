@@ -18,11 +18,11 @@ public:
 
     void addPrepareTimer(Timer &listener);
 
-    void removePrepareTimer(Timer &listener);
+//    void removePrepareTimer(Timer &listener);
 
     void addTickTimer(Timer &listener);
 
-    void removeTickTimer(Timer &listener);
+//    void removeTickTimer(Timer &listener);
 
 private:
     TimerManager _prepareTimers;

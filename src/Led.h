@@ -5,7 +5,6 @@
 #ifndef BASICS_LED_H
 #define BASICS_LED_H
 
-#include "Arduino.h"
 #include "Component.h"
 
 class Led : public Component{

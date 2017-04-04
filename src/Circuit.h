@@ -4,7 +4,6 @@
 
 #ifndef BASICS_CIRCUIT_H
 #define BASICS_CIRCUIT_H
-#include <Arduino.h>
 #include "Component.h"
 #include <StandardCplusplus.h>
 #include <vector>
@@ -16,7 +15,7 @@ public:
     void tick();
     void addComponent(Component& component);
 private:
-    vector<Component&> _components;
+    vector<Component*> _components;
 };
 
 

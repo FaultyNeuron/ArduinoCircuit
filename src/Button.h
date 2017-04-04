@@ -8,22 +8,22 @@
 #define DEFAULT_HISTORY_LENGTH 10
 #define DEFAULT_HISTORY_DELAY 3
 
-#include "Arduino.h"
+#include <StandardCplusplus.h>
+//#include "Arduino.h"
 #include "Component.h"
 #include "ActionListener.h"
-#include <StandardCplusplus.h>
 #include <vector>
 using namespace std;
 
 class Button : public Component {
 //    friend class ButtonTimer;
 public:
-    Button(uint8_t pin);
+    Button(uint8_t pin, unsigned long milli);
     Button(uint8_t pin, unsigned int historyLength, unsigned int historyDelay, unsigned long milli);
-    void addOnPressListener(const ActionListener &listener);
-    void removeOnPressListener(const ActionListener &listener);
-    void addOnReleaseListener(const ActionListener &listener);
-    void removeOnReleaseListener(const ActionListener &listener);
+    void addOnPressListener(ActionListener &listener);
+    void removeOnPressListener(ActionListener &listener);
+    void addOnReleaseListener(ActionListener &listener);
+    void removeOnReleaseListener(ActionListener &listener);
     void tick(unsigned long millis);
     bool isPressed() {return _isPressed;}
 
@@ -31,8 +31,8 @@ private:
     uint8_t _pin;
     int _historyLength;
     bool* _pressedHistory;
-    vector<ActionListener&> _onPressListeners;
-    vector<ActionListener&> _onReleaseListeners;
+    vector<ActionListener*> _onPressListeners;
+    vector<ActionListener*> _onReleaseListeners;
     int _historyIndex = 0;
     bool _isPressed = false;
     bool _notifyListeners = false;

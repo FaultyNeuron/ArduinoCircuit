@@ -3,8 +3,9 @@
 //
 
 #include "Button.h"
+#include <Arduino.h>
 
-Button::Button(uint8_t pin) : Button(pin, DEFAULT_HISTORY_LENGTH, DEFAULT_HISTORY_DELAY) {
+Button::Button(uint8_t pin, unsigned long milli) : Button(pin, DEFAULT_HISTORY_LENGTH, DEFAULT_HISTORY_DELAY, milli) {
 
 }
 
@@ -14,20 +15,20 @@ Button::Button(uint8_t pin, unsigned int historyLength, unsigned int historyDela
     addPrepareTimer(*new ButtonTimer(historyDelay, milli, *this));
 }
 
-void Button::addOnPressListener(const ActionListener &listener) {
-    _onPressListeners.push_back(listener);
+void Button::addOnPressListener(ActionListener &listener) {
+    _onPressListeners.push_back(&listener);
 }
 
-void Button::removeOnPressListener(const ActionListener &listener) {
-    _onPressListeners.erase(std::remove(_onPressListeners.begin(), _onPressListeners.end(), listener), _onPressListeners.end());
+void Button::removeOnPressListener(ActionListener &listener) {
+    _onPressListeners.erase(std::remove(_onPressListeners.begin(), _onPressListeners.end(), &listener), _onPressListeners.end());
 }
 
-void Button::addOnReleaseListener(const ActionListener &listener) {
-    _onReleaseListeners.push_back(listener);
+void Button::addOnReleaseListener(ActionListener &listener) {
+    _onReleaseListeners.push_back(&listener);
 }
 
-void Button::removeOnReleaseListener(const ActionListener &listener) {
-    _onReleaseListeners.erase(std::remove(_onReleaseListeners.begin(),_onReleaseListeners.end(), listener),
+void Button::removeOnReleaseListener(ActionListener &listener) {
+    _onReleaseListeners.erase(std::remove(_onReleaseListeners.begin(),_onReleaseListeners.end(), &listener),
                               _onReleaseListeners.end());
 }
 
@@ -35,12 +36,12 @@ void Button::tick(unsigned long millis) {
     Component::tick(millis);
     if (_notifyListeners) {
         if (_isPressed) {
-            for (auto &onPressListener : _onPressListeners){
-                onPressListener.action();
+            for (auto onPressListener : _onPressListeners){
+                onPressListener->action();
             }
         } else {
             for (auto &onReleaseListener : _onReleaseListeners){
-                onReleaseListener.action();
+                onReleaseListener->action();
             }
         }
     }

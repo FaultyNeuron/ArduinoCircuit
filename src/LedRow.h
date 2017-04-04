@@ -21,7 +21,7 @@ public:
     unsigned int getLedCount();
 
 private:
-    vector<Led&> _leds;
+    vector<Led*> _leds;
     void _addLed(Led& led);
 };
 
