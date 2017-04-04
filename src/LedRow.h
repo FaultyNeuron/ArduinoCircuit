@@ -15,17 +15,14 @@ public:
     LedRow(uint8_t *pins, int pinCount);
     ~LedRow();
 
-    Led &getLed(unsigned int index);
+    Led& getLed(unsigned int index);
     void addLed(uint8_t pin);
     void displayBinaryNumber(unsigned int number);
     unsigned int getLedCount();
 
 private:
-    vector<Led> _leds;
-    void _addLed(const Led &led);
-
-
-
+    vector<Led&> _leds;
+    void _addLed(Led& led);
 };
 
 

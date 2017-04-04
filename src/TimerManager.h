@@ -13,12 +13,12 @@ using namespace std;
 
 class TimerManager {
 public:
-    void add(const Timer &listener);
-    void remove(const Timer &listener);
+    void add(Timer& listener);
+    void remove(Timer& listener);
     void tick(unsigned long milli);
-    deque<Timer> timers();
+    deque<Timer&> timers();
 private:
-    deque<Timer> _timers;
+    deque<Timer&> _timers;
 };
 
 

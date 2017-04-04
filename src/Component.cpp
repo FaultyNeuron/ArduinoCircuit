@@ -12,18 +12,18 @@ void Component::tick(unsigned long milli) {
     _tickTimers.tick(milli);
 }
 
-void Component::addPrepareTimer(const Timer &timer) {
+void Component::addPrepareTimer(Timer &timer) {
     _prepareTimers.add(timer);
 }
 
-void Component::removePrepareTimer(const Timer &timer) {
+void Component::removePrepareTimer(Timer &timer) {
     _prepareTimers.remove(timer);
 }
 
-void Component::addTickTimer(const Timer &timer) {
+void Component::addTickTimer(Timer &timer) {
     _tickTimers.add(timer);
 }
 
-void Component::removeTickTimer(const Timer &timer) {
+void Component::removeTickTimer(Timer &timer) {
     _tickTimers.remove(timer);
 }

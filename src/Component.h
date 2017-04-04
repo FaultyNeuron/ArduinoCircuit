@@ -16,13 +16,13 @@ public:
     virtual void tick(unsigned long millis);
     virtual void prepare(unsigned long millis);
 
-    void addPrepareTimer(const Timer &listener);
+    void addPrepareTimer(Timer &listener);
 
-    void removePrepareTimer(const Timer &listener);
+    void removePrepareTimer(Timer &listener);
 
-    void addTickTimer(const Timer &listener);
+    void addTickTimer(Timer &listener);
 
-    void removeTickTimer(const Timer &listener);
+    void removeTickTimer(Timer &listener);
 
 private:
     TimerManager _prepareTimers;

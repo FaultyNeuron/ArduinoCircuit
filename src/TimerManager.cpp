@@ -4,12 +4,12 @@
 
 #include "TimerManager.h"
 
-void TimerManager::add(const Timer &timer) {
+void TimerManager::add(Timer& timer) {
     _timers.push_back(timer);
     std::sort(_timers.begin(), _timers.end());
 }
 
-void TimerManager::remove(const Timer &timer) {
+void TimerManager::remove(Timer& timer) {
     _timers.erase(std::remove(_timers.begin(), _timers.end(), timer), _timers.end());
 }
 
@@ -23,6 +23,6 @@ void TimerManager::tick(unsigned long milli) {
     }
 }
 
-deque<Timer> TimerManager::timers() {
+deque<Timer&> TimerManager::timers() {
     return _timers;
 }

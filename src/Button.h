@@ -31,8 +31,8 @@ private:
     uint8_t _pin;
     int _historyLength;
     bool* _pressedHistory;
-    vector<ActionListener> _onPressListeners;
-    vector<ActionListener> _onReleaseListeners;
+    vector<ActionListener&> _onPressListeners;
+    vector<ActionListener&> _onReleaseListeners;
     int _historyIndex = 0;
     bool _isPressed = false;
     bool _notifyListeners = false;

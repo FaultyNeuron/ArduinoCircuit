@@ -27,7 +27,7 @@ Led& LedRow::getLed(unsigned int index) {
     return _leds[index];
 }
 
-void LedRow::_addLed(const Led& led) {
+void LedRow::_addLed(Led& led) {
     _leds.push_back(led);
 }
 

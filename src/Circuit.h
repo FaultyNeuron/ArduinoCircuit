@@ -16,7 +16,7 @@ public:
     void tick();
     void addComponent(Component& component);
 private:
-    vector<Component> _components;
+    vector<Component&> _components;
 };
 
 
